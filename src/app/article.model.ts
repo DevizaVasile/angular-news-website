@@ -19,8 +19,9 @@ import { Tags } from './tags.model'
 export class Article {
 
     public shortText:string;
+    public tags:Tags;
 
-    constructor( public title:string , public mainImgUrl:string , public content:string, public tags:Tags )
+    constructor( public title:string , public mainImgUrl:string , public content:string, public tagsList:string[] )
     {  
         // generates text for theading  
         // majority of publication uses 30 words as short description
@@ -39,8 +40,13 @@ export class Article {
             {
                 this.shortText=this.content;
             }
+
+        this.tags = new Tags(this.tagsList);
+
      };
 
+
+     //Getters
 
      public getTitle()
      {
@@ -65,6 +71,40 @@ export class Article {
      public getTags()
      {
          return this.tags
+     }
+
+
+     //Setters
+
+     public setTitle(newTitle:string)
+     {
+        this.title=newTitle;
+
+     }
+
+     public setMainImgUrl(newMainImgUrl:string)
+     {
+        this.mainImgUrl=newMainImgUrl;
+     }
+
+     public setContent(newContent:string)
+     {
+        this.content=newContent;
+     }
+
+     public setShortText(newShortText:string)
+     {
+         this.shortText=newShortText;
+     }
+
+     public addTag(newTag:string)
+     {
+        this.tags.addTag(newTag);
+     }
+
+     public removeTag(toRemoveTag:string)
+     {
+         this.tags.removeTag(toRemoveTag);
      }
 
 
