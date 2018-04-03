@@ -14,18 +14,18 @@ content : All text will be stored in this variable.
 
  */
 
+import { Tags } from './tags.model'
 
 export class Article {
 
     public shortText:string;
 
-    constructor( public title:string , public mainImgUrl:string , public content:string)
+    constructor( public title:string , public mainImgUrl:string , public content:string, public tags:Tags )
     {  
         // generates text for theading  
         // majority of publication uses 30 words as short description
         //in headings.
 
-        console.debug("created");
 
         let words = content.split(' ');
         let contentLengt = words.length
@@ -60,6 +60,11 @@ export class Article {
      public getShortText()
      {
          return this.shortText;
+     }
+
+     public getTags()
+     {
+         return this.tags
      }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Article } from '../article.model';
+import { Tags } from '../tags.model'
 
 @Component({
   selector: 'app-home-page',
@@ -8,6 +9,12 @@ import { Article } from '../article.model';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+
+
+
+
+
+
 
 
   constructor() {
