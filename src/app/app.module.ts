@@ -16,6 +16,7 @@ import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIco
 
 //Froala
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     AboutComponent,
     HeadingComponent,
     AdminComponent,
-    NewPostComponent
+    NewPostComponent,
+    NavigationComponent
 
   ],
   imports: [
