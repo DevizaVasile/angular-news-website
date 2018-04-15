@@ -1,9 +1,12 @@
 <div [froalaEditor]='options' [(froalaModel)]="editorContent"></div>
-
-
-
 <br>
+<div [froalaView]="editorContent"></div>
 <br>
 <button mat-button (click)="onClickMe()" >Next</button>
 
- {{clickMessage}}
+<button mat-raised-button (click)="openDialog()">Pick one</button>
+
+<div [innerHTML]="clickMessage"></div>
+
+
+

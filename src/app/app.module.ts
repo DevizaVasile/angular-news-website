@@ -9,15 +9,19 @@ import { AboutComponent } from './about/about.component';
 import { HeadingComponent } from './heading/heading.component';
 import { AdminComponent } from './admin/admin.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { NewPostPreviewComponent } from './new-post/new-post.component';
 
 //Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule , MatTabsModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //Froala
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { NavigationComponent } from './navigation/navigation.component';
-
+import { FormGroup } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { NavigationComponent } from './navigation/navigation.component';
     HeadingComponent,
     AdminComponent,
     NewPostComponent,
-    NavigationComponent
+    NavigationComponent,
+    NewPostPreviewComponent,
+    FooterComponent,
+  
+  
 
   ],
   imports: [
@@ -40,12 +48,20 @@ import { NavigationComponent } from './navigation/navigation.component';
    MatIconModule,
    MatTabsModule,
    BrowserAnimationsModule,
+   MatDialogModule,
+   ReactiveFormsModule,
+   FormsModule,
+
 
    FroalaEditorModule.forRoot(),
    FroalaViewModule.forRoot()
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NewPostComponent,
+    NewPostPreviewComponent
+]
 })
 export class AppModule { }
