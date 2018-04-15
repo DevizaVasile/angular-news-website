@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PostCategoryComponent } from './post-category/post-category.component';
 import { PostComponent } from './post/post.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { PostComponent } from './post/post.component';
     FooterComponent,
     PostCategoryComponent,
     PostComponent,
+  
   
   
 
@@ -55,6 +57,7 @@ import { PostComponent } from './post/post.component';
    MatDialogModule,
    ReactiveFormsModule,
    FormsModule,
+
 
 
    FroalaEditorModule.forRoot(),

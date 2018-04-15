@@ -1,12 +1,16 @@
+<div class='container'>
+
 <div [froalaEditor]='options' [(froalaModel)]="editorContent"></div>
-<br>
+
+<h1 class="text-center">Preview</h1>
+<hr>
+
 <div [froalaView]="editorContent"></div>
-<br>
-<button mat-button (click)="onClickMe()" >Next</button>
-
-<button mat-raised-button (click)="openDialog()">Pick one</button>
-
-<div [innerHTML]="clickMessage"></div>
-
+<!-- 
+    disabled 
+    <button mat-raised-button (click)="openDialog()">Preview</button>
+-->
+<div [innerHTML]="trustedEditorContent "></div>
 
 
+</div> 
