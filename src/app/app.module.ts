@@ -22,6 +22,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { PostCategoryComponent } from './post-category/post-category.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { FooterComponent } from './footer/footer.component';
     NavigationComponent,
     NewPostPreviewComponent,
     FooterComponent,
+    PostCategoryComponent,
+    PostComponent,
   
   
 

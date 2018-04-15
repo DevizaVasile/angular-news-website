@@ -29,7 +29,7 @@ export class Article {
     public date:string;
     public showDate:string;
 
-    constructor( public title:string , public mainImgUrl:string , public content:string, public tagsList:string[], public dateObject = new Date()  )
+    constructor(public id:number, public title:string , public mainImgUrl:string , public content:string, public tagsList:string[], public dateObject = new Date()  )
     {  
         // generates text for theading  
         // majority of publication uses 30 words as short description

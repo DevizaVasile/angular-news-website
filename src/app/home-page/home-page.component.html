@@ -40,7 +40,7 @@
   <div class="row d-flex justify-content-center">
     
     <!-->Main articles <!-->
-    <div class="col-sm-12 col-md-12 col-lg-7 bg-info m-1">
+    <div class="col-sm-12 col-md-12 col-lg-7  m-1">
         
       <p class="text-center">Main Articles</p>
 
@@ -99,16 +99,15 @@
 
 
     <!--> Right bar <!-->
-    <div class="col-sm-12 col-md-12 col-lg-4  bg-warning m-1">
+    <div class="col-sm-12 col-md-12 col-lg-4  m-1">
       <p class="text-center">Editor's choiche</p>
 
       <div class="row">
-        <div class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 bg-danger mb-3"> <h4>Text  long text hereeeeeeeeeeeeeeeeeee</h4></div>
-        <div class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 bg-danger mb-3"> <h4>Text  long text hereeeeeeeeeeeeeeeeeee</h4></div>
-        <div class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 bg-danger mb-3"> <h4>Text  long text hereeeeeeeeeeeeeeeeeee</h4></div>
-        <div class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 bg-danger mb-3"> <h4>Text  long text hereeeeeeeeeeeeeeeeeee</h4></div>
-        <div class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 bg-danger mb-3"> <h4>Text  long text hereeeeeeeeeeeeeeeeeee</h4></div>
+        <div *ngFor="let article of articles" (click)="clickedArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">
+            <h4><em>{{article.title}}</em> by {{article.id}}</h4>
+            <hr>
       </div>
+
       
     </div>
 
