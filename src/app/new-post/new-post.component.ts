@@ -16,9 +16,18 @@ import {DomSanitizer} from '@angular/platform-browser';
 
 export class NewPostComponent implements OnInit {
 
+
+  showHTML()
+  {
+    
+    this.trustedEditorContent=this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
+    this.clickMessage = this.editorContent;
+  }
+
   
   openDialog() {
     this.trustedEditorContent=this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
+
     let self=this.trustedEditorContent;
     this.dialog.open(NewPostPreviewComponent,{data:{self}});
   }
@@ -36,8 +45,8 @@ export class NewPostComponent implements OnInit {
 
   clickMessage = '';
   onClickMe() {
-    this.clickMessage = this.editorContent;
     this.trustedEditorContent=this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
+    this.clickMessage = this.editorContent;
     console.log(this.trustedEditorContent)
 
   }
