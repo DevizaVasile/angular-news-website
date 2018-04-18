@@ -1,3 +1,22 @@
 <div class='container'>
 
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Title" value="">
+        </mat-form-field>
+      </form>
+      
+
+
 <div [froalaEditor]='options' [(froalaModel)]="editorContent"></div>
+
+<br>
+
+<app-drag-and-drop-tags></app-drag-and-drop-tags>
+
+<br>
+
+<button mat-button class="aling-center" (click)="getData($event)">Click me!</button>
+
+</div>

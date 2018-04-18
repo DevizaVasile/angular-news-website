@@ -5,70 +5,52 @@ import { Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { FormGroup } from '@angular/forms';
 import {DomSanitizer} from '@angular/platform-browser';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
+import {DragAndDropService} from '../drag-and-drop.service'
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.css']
+  styleUrls: ['./new-post.component.css'],
+  providers:[DragAndDropService]
 })
 
 export class NewPostComponent implements OnInit {
 
 
-  showHTML()
-  {
-    
-    this.trustedEditorContent=this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
-    this.clickMessage = this.editorContent;
-  }
-
-  
-  openDialog() {
-    this.trustedEditorContent=this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
-
-    let self=this.trustedEditorContent;
-    this.dialog.open(NewPostPreviewComponent,{data:{self}});
-  }
-
-  
   options: Object = {
     placeholderText: 'Edit Your Content Here!',
-    charCounterCount: false,
-    inlineStiles:true
+    charCounterCount: true,
+    imageUpload: false,
+    fileUpload: false,
+    videoUpload: false,
+    //enter: $.FroalaEditor.ENTER_BR
   }
 
   public editorContent: string = ''
-  public trustedEditorContent;
 
 
-  clickMessage = '';
-  onClickMe() {
-    this.trustedEditorContent=this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
-    this.clickMessage = this.editorContent;
-    console.log(this.trustedEditorContent)
-
+  getData(event)
+  {
+    console.log("OK")
+    //console.log(this.dragAndDropValues.getDataFromDragAndDrop());
+    this.dragAndDropValues.getDataFromDragAndDrop()
   }
 
-  constructor(public dialog: MatDialog,private sanitizer: DomSanitizer) { 
+                                                      //public dragAndDropValues:DragAndDropService
+  constructor(private sanitizer: DomSanitizer,public dragAndDropValues:DragAndDropService) { 
   }
   
   ngOnInit() {
-
   }
+
 
 }
 
 
-@Component({
-  selector:"post-preview",
-  template: "<div [innerHTML]='data.self'></div>"
-})
-export class NewPostPreviewComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private sanitizer:DomSanitizer) {
-  }
-}
 
 
 
