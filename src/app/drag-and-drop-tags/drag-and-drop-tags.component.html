@@ -1,15 +1,14 @@
-<h4 class="bg-success">Multi list sortable</h4>
 <div class="row">
 
 
 
     <div class="col-sm-3">
-    <div class="panel panel-warning">
+    <div class="panel">
         <div class="panel-heading">
         Available Tags
         </div>
-        <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listBoxers">
-            <ul class="list-group" >
+        <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listBoxers" style="min-height: 66px;">
+            <ul class="list-group border border-warning" style="min-height: 66px;" >
                 <li *ngFor="let item of listBoxers; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">{{item}}</li>
             </ul>
         </div>
@@ -17,17 +16,17 @@
     </div>
 
     <div class="col-sm-3">
-    <div class="panel panel-success">
+    <div  class="panel">
         <div class="panel-heading">
         Pick Tags
         </div>
         <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="listTeamOne">
-            <ul class="list-group border border-success" style="min-height: 66px;" (click)="getData()" >
+            <ul class="list-group border border-success" style="min-height: 66px;" >
                 <li *ngFor="let item of listTeamOne; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">{{item}}</li>
             </ul>
         </div>
     </div>
     </div>
 
-
+  <!--  [ngClass]="listTeamOne.length == 0 ? 'list-group border panel-danger': ' list-group border panel-success'" -->
 </div>

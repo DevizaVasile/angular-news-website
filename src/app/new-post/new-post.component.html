@@ -3,7 +3,11 @@
 
     <form class="example-form">
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Title" value="">
+          <input matInput placeholder="Title" value="" [(ngModel)]="title" name="title" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Coperta (URL)" value="" [(ngModel)]="imgUrl" name="imgUrl" required>
         </mat-form-field>
       </form>
       
@@ -17,6 +21,6 @@
 
 <br>
 
-<button mat-button class="aling-center" (click)="getData($event)">Click me!</button>
+<button mat-button class="aling-center" (click)="getData($event)">Adauga articol</button>
 
 </div>

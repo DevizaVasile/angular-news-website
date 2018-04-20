@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { HeadingComponent } from './heading/heading.component';
 import { AdminComponent } from './admin/admin.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { DragAndDropTagsComponent } from './drag-and-drop-tags/drag-and-drop-tags.component';
 
 //Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,9 +26,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PostCategoryComponent } from './post-category/post-category.component';
 import { PostComponent } from './post/post.component';
 import {MatInputModule} from '@angular/material/input';
-import { DragAndDropTagsComponent } from './drag-and-drop-tags/drag-and-drop-tags.component';
 
-import {DragAndDropService} from "./drag-and-drop.service"
+
 
 
 
@@ -67,11 +67,14 @@ import {DragAndDropService} from "./drag-and-drop.service"
    DndModule.forRoot(),
 
 
+
+
+
    FroalaEditorModule.forRoot(),
    FroalaViewModule.forRoot()
 
   ],
-  providers: [DragAndDropService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
     NewPostComponent

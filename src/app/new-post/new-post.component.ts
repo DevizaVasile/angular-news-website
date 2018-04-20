@@ -7,20 +7,29 @@ import { FormGroup } from '@angular/forms';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { NgModule } from '@angular/core';
 
-
-import {DragAndDropService} from '../drag-and-drop.service'
+import {DragAndDropServiceService} from '../drag-and-drop-service.service'
+import {Article} from '../article.model'
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css'],
-  providers:[DragAndDropService]
+  providers: [DragAndDropServiceService]
+
 })
 
 export class NewPostComponent implements OnInit {
 
+  //title of the article
+  title:string="";
+  imgUrl:string="";
+  article:Article;
 
+
+
+  //froala settings
   options: Object = {
     placeholderText: 'Edit Your Content Here!',
     charCounterCount: true,
@@ -29,22 +38,65 @@ export class NewPostComponent implements OnInit {
     videoUpload: false,
     //enter: $.FroalaEditor.ENTER_BR
   }
-
   public editorContent: string = ''
 
 
+  //get tags from drag and drop component
+
   getData(event)
   {
-    console.log("OK")
-    //console.log(this.dragAndDropValues.getDataFromDragAndDrop());
-    this.dragAndDropValues.getDataFromDragAndDrop()
+    let ready=false;
+    let msg:String="";
+    //console.log(this.dndService.getDndValues());
+   // console.log(this.title);
+   // console.log(this.editorContent);
+   // console.log(this.imgUrl);
+
+    if ( this.title.length < 10 )
+    {
+       msg="Title is too short."
+    }
+
+    if ( this.imgUrl.length == 0 )
+    {
+      msg="Please use an image. "+msg;
+    }
+
+    if (this.editorContent.length < 10 )
+    {
+      msg="Article si too short. "+msg;
+    }
+
+    if (this.dndService.getDndValues().length == 0)
+    {
+        msg="Please add at least one tag. "+msg;
+    }
+
+    if (msg.length==0)
+    {
+      msg="Succes."
+      ready=true;
+    }
+
+    if(ready==true)
+    {
+      console.log("article was pushed to database")
+      window.location.reload();
+    }
+    else
+    {
+      console.log(msg)
+    }
+
+
   }
 
-                                                      //public dragAndDropValues:DragAndDropService
-  constructor(private sanitizer: DomSanitizer,public dragAndDropValues:DragAndDropService) { 
+  constructor(private sanitizer: DomSanitizer, private dndService:DragAndDropServiceService) { 
+    
   }
   
   ngOnInit() {
+
   }
 
 
