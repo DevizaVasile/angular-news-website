@@ -27,7 +27,17 @@ import { PostCategoryComponent } from './post-category/post-category.component';
 import { PostComponent } from './post/post.component';
 import {MatInputModule} from '@angular/material/input';
 
+//firebase credentials
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 
 
@@ -65,9 +75,8 @@ import {MatInputModule} from '@angular/material/input';
    MatFormFieldModule,
    MatInputModule,
    DndModule.forRoot(),
-
-
-
+   AngularFireModule.initializeApp(firebaseConfig),
+   AngularFireDatabaseModule,
 
 
    FroalaEditorModule.forRoot(),

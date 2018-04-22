@@ -103,8 +103,8 @@
       <p class="text-center">Editor's choiche</p>
 
       <div class="row">
-        <div *ngFor="let article of articles" (click)="clickedArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">
-            <h4><em>{{article.title}}</em> by {{article.id}}</h4>
+        <div *ngFor="let article of articles | async" (click)="goToArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">
+            <h4><em>{{article.title}}</em> by {{article.$key}}</h4>
             <hr>
       </div>
 

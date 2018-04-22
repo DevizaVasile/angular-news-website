@@ -1,14 +1,15 @@
 <app-navigation></app-navigation>
 
 <div class="container">
-    <h2 class="text-center p-2 m2">{{article.title}}</h2>
-    <p class="text-center p-2 m2">{{article.content}}</p>
+    <h2 class="text-center p-2 m2">{{(articleToDisplay | async)?.title}}</h2>
+    <p class="text-center p-2 m2">{{(articleToDisplay | async)?.content}}</p>
 
-    <span *ngFor="let obj of tagArray">
-      <a href="#" class="text-muted">  {{obj}}  </a>
-    </span>
+    <div [froalaView]="articleToDisplay.content"></div>
 
     <hr>
+
+    <div [froalaEditor]='options' [(froalaModel)]="editorContent"></div>
+
 </div>
 
 

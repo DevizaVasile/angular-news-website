@@ -1,0 +1,27 @@
+{ "articles": 
+  [
+
+  {
+    "id": "1",
+    "title": "Articolul 1",
+    "mainImgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-OByMbSao-jKK8NM4iKNdocEUAg1d9HwQ3a58jifSvYXcP0voyw",
+    "content": "Pink Floyd Pink Floyd Pink Floyd Pink Floyd <h1>Pink Floyd</h1>",
+    "tagsList": ["t1","t2","t3","t4"]
+
+  },
+
+   {
+    "id": "2",
+    "title": "Articolul 2",
+    "mainImgUrl":"https://secure.img2-fg.wfcdn.com/im/64055122/resize-h800%5Ecompr-r85/3144/31444146/Groesbeck+Hello+Doormat.jpg",
+    "content": "Pink Floyd Pink Floyd Pink Floyd Pink Floyd <h1>Pink Floyd 2</h1>",
+    "tagsList": ["t10","t20","t30","t40"]
+
+  }
+
+
+
+
+
+  ]
+}

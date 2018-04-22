@@ -1,22 +1,23 @@
 import { Component, OnInit , Pipe, PipeTransform} from '@angular/core';
 import { FroalaEditorModule, FroalaViewModule, FroalaViewDirective, FroalaEditorDirective } from 'angular-froala-wysiwyg';
 import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
-import { Inject } from '@angular/core';
+import {Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { FormGroup } from '@angular/forms';
+import {FormGroup } from '@angular/forms';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import {DragAndDropServiceService} from '../drag-and-drop-service.service'
 import {Article} from '../article.model'
+import {ArticleService} from '../article.service'
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css'],
-  providers: [DragAndDropServiceService]
+  providers: [DragAndDropServiceService, ArticleService]
 
 })
 
@@ -81,7 +82,9 @@ export class NewPostComponent implements OnInit {
     if(ready==true)
     {
       console.log("article was pushed to database")
-      window.location.reload();
+     var newArticle=new Article(this.title,this.imgUrl,this.editorContent,this.dndService.getDndValues())
+     this.articleService.addArticle(newArticle)
+     window.location.reload();
     }
     else
     {
@@ -91,7 +94,7 @@ export class NewPostComponent implements OnInit {
 
   }
 
-  constructor(private sanitizer: DomSanitizer, private dndService:DragAndDropServiceService) { 
+  constructor(private sanitizer: DomSanitizer, private dndService:DragAndDropServiceService,private articleService:ArticleService) { 
     
   }
   

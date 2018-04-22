@@ -28,12 +28,14 @@ export class Article {
     public tags:Tags;
     public date:string;
     public showDate:string;
+    public key:string;
 
-    constructor(public id:number, public title:string , public mainImgUrl:string , public content:string, public tagsList:string[], public dateObject = new Date()  )
+    constructor(public title:string , public mainImgUrl:string , public content:string, public tagsList:string[])
     {  
         // generates text for theading  
         // majority of publication uses 30 words as short description
         //in headings.
+        let dateObject = new Date()
 
         let words = content.split(' ');
         let contentLengt = words.length
@@ -97,7 +99,7 @@ export class Article {
      public getTags()
      {
          return this.tags
-     }
+    }
 
      public getDate()
      {

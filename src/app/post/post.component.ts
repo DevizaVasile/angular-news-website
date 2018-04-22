@@ -3,32 +3,47 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import {Article} from "../article.model"
-
+import {ArticleService} from "../article.service"
 import {HomePageComponent} from '../home-page/home-page.component'
+
+import { FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase} from 'angularfire2/database';
+
+import { FroalaEditorModule, FroalaViewModule, FroalaViewDirective, FroalaEditorDirective } from 'angular-froala-wysiwyg';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
+  providers: [ArticleService]
 })
 export class PostComponent implements OnInit {
 
-  id: number = null;
-  article:Article=new Article(this.id,"Marian Vanghelie: Oamenii sunt șantajați în 90% din dosare","img3",'Marian Vanghelia a făcut declarații la Tribunalul București despre protocoale. În continuare suntem dornici să aflăm și celelalte protocoale. Să vedem ce ne zice doamna Stanciu după ce vedem protocolul, săvedem celelalte protocoale care există cu celelalte instituții. Cred că în România și în statul ala de drept adevărat, nu pe care au încercat unii să-l facă paralel, acești oameni trebuie să răspundă, dar nu cu denunțuri false și cu băgat oameni care să scrie de 2-3 ori denunțuri și cu luat oameni cu abuzuri dimineața la 5, la 6 din casă.. cum se întâmplă în toate dosarele, în proporție de 90%. Sunt șantajați oamenii ca să facă denunțuri. Trebuie ca oamenii să o ia încet-încet către Parchet și să de cu subsemnatul și să spună cum și-au permis să încalce Constituția României”, a spus Vanghelie.',['Statul paralel','Conspiratii']);
-  tagArray:String[]=new Array();
+  articleToDisplay;
+  articleID:string;
+  
+    //froala settings
+    options: Object = {
+      placeholderText: 'Edit Your Content Here!',
+      charCounterCount: true,
+      imageUpload: false,
+      fileUpload: false,
+      videoUpload: false,
+      //enter: $.FroalaEditor.ENTER_BR
+    }
+    public editorContent: string = ''
 
-  constructor(private route: ActivatedRoute, private location: Location) { }
+  constructor(private route: ActivatedRoute, private location: Location,private articleService:ArticleService) { }
 
   ngOnInit() {
+
     this.route.params.forEach((urlParameters) => {
-      this.id = parseInt(urlParameters['id']);
+      this.articleID = urlParameters['id'];
     });  
 
-    let s:string;
-    for(s in this.article.tagsList)
-    {
-      this.tagArray.push(this.article.tagsList[s]);
-    }
+    this.articleToDisplay=this.articleService.getArticleByID(this.articleID)
+    this.editorContent=this.articleToDisplay.content;
+    console.log(this.articleToDisplay)
 
   }
 
