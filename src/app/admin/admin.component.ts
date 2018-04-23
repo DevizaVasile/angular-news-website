@@ -6,6 +6,9 @@ import 'zone.js/dist/zone';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule , MatTabsModule } from '@angular/material';
 
+import { TagsService } from '../tags.service'
+
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -19,6 +22,7 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

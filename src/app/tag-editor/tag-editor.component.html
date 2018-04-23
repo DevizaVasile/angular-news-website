@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-6 d-inline-block ">
+    <h5>Add new tag</h5>
+    <br>
+    <input #newTag>
+    <br>
+    <button (click)="addTag(newTag.value); newTag.value=' '">Add</button>
+    
+
+    <h5>Remove Tag</h5>
+    <br>
+    <input #tagToRemove>
+    <br>
+    <button (click)="removeTag(tagToRemove.value); tagToRemove.value=' '">Remove</button>
+  </div>
+
+  <div class="col d-inline-block ">
+      <ul class="list-group">
+        <li *ngFor="let tag of $tags | async" class="list-group-item">{{tag.$value}}</li>
+
+      </ul>
+  </div>
+
+  </div>
+
+
+  <div>
+    
+  </div>
+
+
+  </div>
+

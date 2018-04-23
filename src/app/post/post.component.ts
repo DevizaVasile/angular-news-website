@@ -19,8 +19,10 @@ import { FroalaEditorModule, FroalaViewModule, FroalaViewDirective, FroalaEditor
 })
 export class PostComponent implements OnInit {
 
-  articleToDisplay;
+  $articleToDisplay;
   articleID:string;
+  imgUrl:string;
+  tags:String[];
   
     //froala settings
     options: Object = {
@@ -41,9 +43,17 @@ export class PostComponent implements OnInit {
       this.articleID = urlParameters['id'];
     });  
 
-    this.articleToDisplay=this.articleService.getArticleByID(this.articleID)
-    this.editorContent=this.articleToDisplay.content;
-    console.log(this.articleToDisplay)
+    this.$articleToDisplay=this.articleService.getArticleByID(this.articleID);
+    this.$articleToDisplay.subscribe( ($articleToDisplay) => 
+      {
+        console.log($articleToDisplay.content) 
+        this.editorContent=$articleToDisplay.content
+        this.imgUrl=$articleToDisplay.mainImgUrl
+        this.tags=$articleToDisplay.tags.tagList
+        console.log(this.tags)
+      });
+    
+
 
   }
 

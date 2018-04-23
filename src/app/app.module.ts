@@ -31,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { TagEditorComponent } from './tag-editor/tag-editor.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -54,6 +55,7 @@ export const firebaseConfig = {
     PostCategoryComponent,
     PostComponent,
     DragAndDropTagsComponent,
+    TagEditorComponent,
   
   
   
