@@ -26,18 +26,22 @@ export class TagEditorComponent implements OnInit {
 
 
   addTag(newTag:string)
-  {
+  { 
     this.tagService.addTag(newTag)
   }
 
   removeTag(tagToRemove:string)
   {
-    let $allTags = this.tagService.getTags();
+    this.$tags.forEach(element => { element.forEach(element_child => 
+      {
+      console.log(element_child.$key)
+      console.log(element_child.$value)
+      });  
+                                  });
+  };
+    
     
     
     //this.tagService.removeTag(tagToRemove)
   }
 
-
-
-}
