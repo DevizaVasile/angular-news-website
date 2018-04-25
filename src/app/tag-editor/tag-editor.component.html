@@ -2,19 +2,37 @@
 
   <div class="row">
 
-    <div class="col-6 d-inline-block ">
+
+    <div class="col-7 d-inline-block ">
     <h5>Add new tag</h5>
-    <br>
-    <input #newTag>
-    <br>
-    <button (click)="addTag(newTag.value); newTag.value=' '">Add</button>
+
+    <mat-form-field>
+    <input matInput #newTag>
+  </mat-form-field>
+
+    <button mat-button (click)="addTag(newTag.value); newTag.value=''">Add</button>
     
 
     <h5>Remove Tag</h5>
-    <br>
-    <input #tagToRemove>
-    <br>
-    <button (click)="removeTag(tagToRemove.value); tagToRemove.value=' '">Remove</button>
+
+    <mat-form-field>
+    <input matInput #tagToRemove>
+  </mat-form-field>
+
+    <button mat-button (click)="removeTag(tagToRemove.value); tagToRemove.value=''">Remove</button>
+
+    <h5>Change Tag Value</h5>
+
+    <mat-form-field>
+    <input matInput #tagold placeholder="Old tag name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput #tagNew placeholder="New tag name">
+  </mat-form-field>
+
+    <button mat-button (click)="changeTagValue(tagold.value,tagNew.value); tagold.value=''; tagNew.value='';   ">Change</button>
+
+
   </div>
 
   <div class="col d-inline-block ">
@@ -27,9 +45,7 @@
   </div>
 
 
-  <div>
-    
-  </div>
+
 
 
   </div>

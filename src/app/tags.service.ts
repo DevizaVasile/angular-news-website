@@ -32,14 +32,16 @@ export class TagsService {
    return this.database.object('tags/' + tagID)
  }
 
- getTagByValue(tagValue:string)
- {
-   
- }
 
  removeTag($key)
  {
    this.tags.remove($key)
+ }
+
+ changeTagValue($key,newValue)
+ {
+   let ref=this.database.object('tags/'+$key);
+   ref.set(newValue)
  }
 
 
