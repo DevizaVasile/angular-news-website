@@ -31,7 +31,7 @@ import {MatInputModule} from '@angular/material/input';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-
+import { DialogDataExampleDialog } from './new-post/new-post.component'
 
 import { TagEditorComponent } from './tag-editor/tag-editor.component';
 
@@ -58,6 +58,7 @@ export const firebaseConfig = {
     PostComponent,
     DragAndDropTagsComponent,
     TagEditorComponent,
+    DialogDataExampleDialog
   
   
   
@@ -90,7 +91,8 @@ export const firebaseConfig = {
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    NewPostComponent
+    NewPostComponent,
+    DialogDataExampleDialog
 ]
 })
 export class AppModule { }

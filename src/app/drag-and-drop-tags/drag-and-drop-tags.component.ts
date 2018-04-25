@@ -12,7 +12,7 @@ import { AngularFireDatabase} from 'angularfire2/database';
   selector: 'app-drag-and-drop-tags',
   templateUrl: './drag-and-drop-tags.component.html',
   styleUrls: ['./drag-and-drop-tags.component.css'],
-  providers: [TagsService,DragAndDropServiceService]
+  providers: [TagsService]
 })
 export class DragAndDropTagsComponent implements OnInit {
 
@@ -26,7 +26,8 @@ export class DragAndDropTagsComponent implements OnInit {
   constructor(public dndService:DragAndDropServiceService,public tagsService:TagsService) { 
     this.tags=Observable.of(this.listTeamOne);
     this.listner=Observable.of(this.$tags)
-    this.tags.subscribe(tagsList => this.listTeamOne)
+
+    //this.tags.subscribe(tagsList => this.listTeamOne)
     this.tags.subscribe(tagsList => 
       {
           dndService.setDndValues(tagsList)

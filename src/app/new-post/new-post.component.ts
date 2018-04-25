@@ -8,6 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {NgModule} from '@angular/core';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {DragAndDropServiceService} from '../drag-and-drop-service.service'
 import {Article} from '../article.model'
@@ -55,22 +56,22 @@ export class NewPostComponent implements OnInit {
 
     if ( this.title.length < 10 )
     {
-       msg="Title is too short."
+       msg="Title is too short. \n"
     }
 
     if ( this.imgUrl.length == 0 )
     {
-      msg="Please use an image. "+msg;
+      msg="Please use an image. \n"+msg;
     }
 
     if (this.editorContent.length < 10 )
     {
-      msg="Article si too short. "+msg;
+      msg="Article si too short. \n"+msg;
     }
 
     if (this.dndService.getDndValues().length == 0)
     {
-        msg="Please add at least one tag. "+msg;
+        msg="Please add at least one tag. \n"+msg;
     }
 
     if (msg.length==0)
@@ -81,20 +82,22 @@ export class NewPostComponent implements OnInit {
 
     if(ready==true)
     {
-      console.log("article was pushed to database")
      var newArticle=new Article(this.title,this.imgUrl,this.editorContent,this.dndService.getDndValues())
      this.articleService.addArticle(newArticle)
      window.location.reload();
     }
     else
     {
-      console.log(msg)
+      //console.log(msg)
+      this.openDialog(msg)
+     
+      
     }
 
 
   }
 
-  constructor(private sanitizer: DomSanitizer, private dndService:DragAndDropServiceService,private articleService:ArticleService) { 
+  constructor(private sanitizer: DomSanitizer, public dndService:DragAndDropServiceService,private articleService:ArticleService,public dialog: MatDialog) { 
     
   }
   
@@ -102,7 +105,22 @@ export class NewPostComponent implements OnInit {
 
   }
 
+  openDialog(msg:String)
+  {
+    this.dialog.open(DialogDataExampleDialog, {
+      data:msg
+    });
+  }
 
+
+}
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  template: '<p><b>{{data}}</b></p>',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: String) {}
 }
 
 
