@@ -34,6 +34,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DialogDataExampleDialog } from './new-post/new-post.component'
 
 import { TagEditorComponent } from './tag-editor/tag-editor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DatabaseComponent } from './database/database.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -58,7 +61,9 @@ export const firebaseConfig = {
     PostComponent,
     DragAndDropTagsComponent,
     TagEditorComponent,
-    DialogDataExampleDialog
+    DialogDataExampleDialog,
+    DashboardComponent,
+    DatabaseComponent
   
   
   

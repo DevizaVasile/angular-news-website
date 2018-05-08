@@ -29,6 +29,11 @@ export class ArticleService {
     return this.database.object('articles/' + articleID)
   }
 
+  getLastArticles(n)
+  {
+    return this.database.list("articles", {query:{limitToFirst:n,}});
+  }
+
 
 
 }

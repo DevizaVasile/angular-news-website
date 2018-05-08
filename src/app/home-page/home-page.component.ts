@@ -34,7 +34,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.articles=this.articleService.getArticles()
+    this.articles=this.articleService.getLastArticles(10);
 
   }
 
