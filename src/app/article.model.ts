@@ -32,6 +32,7 @@ export class Article {
     
 
 
+
     
 
     constructor(public title:string , public mainImgUrl:string , public content:string, public tagsList:string[])
