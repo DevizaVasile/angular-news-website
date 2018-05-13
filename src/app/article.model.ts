@@ -29,13 +29,19 @@ export class Article {
     public date:string;
     public showDate:string;
     public $key:string;
+    //added later
+    public published:boolean=false;
+    
+
+    
+
     
 
 
 
-    
 
-    constructor(public title:string , public mainImgUrl:string , public content:string, public tagsList:string[])
+
+    constructor(public title:string , public mainImgUrl:string , public content:string, public tagsList:string[],public author:string,public category:string)
     {  
         // generates text for theading  
         // majority of publication uses 30 words as short description

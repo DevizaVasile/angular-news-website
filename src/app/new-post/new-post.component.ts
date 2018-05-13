@@ -4,21 +4,25 @@ import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import {Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {FormGroup } from '@angular/forms';
-import {DomSanitizer} from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {NgModule} from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 
 import {DragAndDropServiceService} from '../drag-and-drop-service.service'
 import {Article} from '../article.model'
 import {ArticleService} from '../article.service'
+import { AuthServiceService  } from '../auth-service.service'
+
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.css'],
-  providers: [DragAndDropServiceService, ArticleService]
+  providers: [DragAndDropServiceService,
+               ArticleService,
+               AuthServiceService]
 
 })
 
@@ -27,8 +31,9 @@ export class NewPostComponent implements OnInit {
   //title of the article
   title:string="";
   imgUrl:string="";
+  category="";
   article:Article;
-
+  
 
 
   //froala settings
@@ -82,7 +87,7 @@ export class NewPostComponent implements OnInit {
 
     if(ready==true)
     {
-     var newArticle=new Article(this.title,this.imgUrl,this.editorContent,this.dndService.getDndValues())
+     var newArticle=new Article(this.title,this.imgUrl,this.editorContent,this.dndService.getDndValues(),this.auth.user.value.email,this.category)
      this.articleService.addArticle(newArticle)
      window.location.reload();
     }
@@ -97,7 +102,7 @@ export class NewPostComponent implements OnInit {
 
   }
 
-  constructor(private sanitizer: DomSanitizer, public dndService:DragAndDropServiceService,private articleService:ArticleService,public dialog: MatDialog) { 
+  constructor(public dndService:DragAndDropServiceService,private articleService:ArticleService,public dialog: MatDialog,public auth:AuthServiceService) { 
     
   }
   

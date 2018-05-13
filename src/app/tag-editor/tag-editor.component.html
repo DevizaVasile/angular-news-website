@@ -8,27 +8,28 @@
 
     <mat-form-field>
     <input matInput #newTag>
-  </mat-form-field>
+   </mat-form-field>
 
     <button mat-button (click)="addTag(newTag.value); newTag.value=''">Add</button>
     
 
-    <h5>Remove Tag</h5>
+    <h5>Remove tag</h5>
 
     <mat-form-field>
     <input matInput #tagToRemove>
-  </mat-form-field>
+    </mat-form-field>
 
     <button mat-button (click)="removeTag(tagToRemove.value); tagToRemove.value=''">Remove</button>
 
-    <h5>Change Tag Value</h5>
+    <h5>Change tag value</h5>
 
     <mat-form-field>
     <input matInput #tagold placeholder="Old tag name">
-  </mat-form-field>
-  <mat-form-field>
+    </mat-form-field>
+
+    <mat-form-field>
     <input matInput #tagNew placeholder="New tag name">
-  </mat-form-field>
+    </mat-form-field>
 
     <button mat-button (click)="changeTagValue(tagold.value,tagNew.value); tagold.value=''; tagNew.value='';   ">Change</button>
 
@@ -45,7 +46,54 @@
   </div>
 
 
+<hr>
 
+
+
+<div class="row">
+
+
+    <div class="col-7 d-inline-block ">
+    <h5>Add new category</h5>
+
+    <mat-form-field>
+    <input matInput #newCat>
+   </mat-form-field>
+
+    <button mat-button (click)="addCat(newCat.value); newCat.value=''">Add</button>
+    
+
+    <h5>Remove category</h5>
+
+    <mat-form-field>
+    <input matInput #catToRemove>
+    </mat-form-field>
+
+    <button mat-button (click)="removeCat(catToRemove.value); catToRemove.value=''">Remove</button>
+
+    <h5>Change category value</h5>
+
+    <mat-form-field>
+    <input matInput #catOld placeholder="Old category name">
+    </mat-form-field>
+
+    <mat-form-field>
+    <input matInput #catNew placeholder="New category name">
+    </mat-form-field>
+
+    <button mat-button (click)="changeCatValue(catOld.value,catNew.value); catOld.value=''; catNew.value='';   ">Change</button>
+
+
+  </div>
+
+  <div class="col d-inline-block ">
+      <ul class="list-group">
+        <li *ngFor="let cat of $cats | async" class="list-group-item">{{cat.$value}}</li>
+
+      </ul>
+  </div>
+
+  </div>
 
 
   </div>

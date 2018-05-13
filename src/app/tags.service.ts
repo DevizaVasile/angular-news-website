@@ -14,8 +14,12 @@ export class TagsService {
   //citiesRef:AngularFirestoreCollection = this.database.collection("cities");
   keys:Array<any[]>;
 
+  cats:FirebaseListObservable<any[]>;
+  catKeys:Array<any[]>;
+
   constructor(private database: AngularFireDatabase) { 
     this.tags=database.list('tags');
+    this.cats=database.list('categories');
   }
 
   getTags()
@@ -44,6 +48,31 @@ export class TagsService {
    ref.set(newValue)
  }
 
+ getCats()
+ {
+   return this.cats;
+ }
+
+ addCat(newCat:string)
+ {
+   this.cats.push(newCat);
+ }
+
+ getCatByID(catID:string)
+ {
+   return this.database.object('categories/'+catID)
+ }
+
+ removeCat($key)
+ {
+   this.cats.remove($key)
+ }
+
+ changeCatValue($key,newValue)
+ {
+   let ref=this.database.object('categories/'+$key);
+   ref.set(newValue)
+ }
 
   
 }

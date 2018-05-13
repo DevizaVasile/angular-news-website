@@ -25,6 +25,7 @@ import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIco
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 //Froala
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FormGroup } from '@angular/forms';
@@ -85,6 +86,7 @@ export const firebaseConfig = {
    FormsModule,
    MatFormFieldModule,
    MatInputModule,
+   MatSelectModule,
    DndModule.forRoot(),
    AngularFireModule.initializeApp(firebaseConfig),
    AngularFireDatabaseModule,
