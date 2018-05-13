@@ -2,6 +2,9 @@
 <mat-card>
   <mat-card-content>
     <h2 class="example-h2 text-center">Admin Panel</h2>
+    <a class="btn btn-sm btn-outline-secondary"  *ngIf="this.authService.user.getValue()==null" (click)="login()" href="#">Google log in</a>
+    <a class="btn btn-sm btn-outline-secondary" *ngIf="this.authService.user.getValue()!=null"  href="#">{{authService.user._value.email}}</a>
+    <a class="btn btn-sm btn-outline-secondary" *ngIf="this.authService.user.getValue()!=null" (click)="logout()" href="#">Log Out</a>
     <br>
     <mat-tab-group class="demo-tab-group">
 

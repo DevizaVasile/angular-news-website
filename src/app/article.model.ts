@@ -29,6 +29,7 @@ export class Article {
     public date:string;
     public showDate:string;
     public $key:string;
+    
 
     constructor(public title:string , public mainImgUrl:string , public content:string, public tagsList:string[])
     {  

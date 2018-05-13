@@ -10,33 +10,34 @@ import { HeadingComponent } from './heading/heading.component';
 import { AdminComponent } from './admin/admin.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { DragAndDropTagsComponent } from './drag-and-drop-tags/drag-and-drop-tags.component';
+import { DialogDataExampleDialog } from './new-post/new-post.component'
+import { TagEditorComponent } from './tag-editor/tag-editor.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DatabaseComponent } from './database/database.component';
+import { FooterComponent } from './footer/footer.component';
+import { PostCategoryComponent } from './post-category/post-category.component';
+import { PostComponent } from './post/post.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 //Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule , MatTabsModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatInputModule} from '@angular/material/input';
 //Froala
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { NavigationComponent } from './navigation/navigation.component';
 import { FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
-import { PostCategoryComponent } from './post-category/post-category.component';
-import { PostComponent } from './post/post.component';
-import {MatInputModule} from '@angular/material/input';
+
 
 //firebase credentials
 import { masterFirebaseConfig } from './api-keys';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { DialogDataExampleDialog } from './new-post/new-post.component'
 
-import { TagEditorComponent } from './tag-editor/tag-editor.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DatabaseComponent } from './database/database.component';
-
+import { AuthServiceService  } from './auth-service.service'
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
