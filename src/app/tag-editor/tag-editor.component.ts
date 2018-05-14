@@ -89,8 +89,16 @@ export class TagEditorComponent implements OnInit {
 
     for(let val of values)
     {
+      if(val==newTagName)
+      {
+        tagExist=true;
+      }
+    }
+
+    for(let val of values)
+    {
       i++;
-      if (val==oldTagName)
+      if (val==oldTagName && tagExist==false)
       {
         this.tagService.changeTagValue(keys[i],newTagName)
       }
@@ -157,15 +165,26 @@ export class TagEditorComponent implements OnInit {
      let keys=Array.from(this.cat_map.keys())
      let values=Array.from(this.cat_map.values())
      let i=-1;
+
+     for(let val of values)
+     {
+       if(val==newCatName)
+       {
+         catExist=true;
+       }
+     }
  
      for(let val of values)
      {
        i++;
-       if (val==oldCatName)
+       if (val==oldCatName && catExist==false)
        {
-         this.tagService.changeTagValue(keys[i],newCatName)
+         this.tagService.changeCatValue(keys[i],newCatName)
        }
      }
+
+
+
     };
   
   
