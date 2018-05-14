@@ -5,7 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
 import { PostComponent } from './post/post.component';
 import { PostCategoryComponent } from './post-category/post-category.component';
-
+import { LoginComponent } from "./login/login.component"
 const appRoutes: Routes = [ 
     {
         path: '',
@@ -25,6 +25,11 @@ const appRoutes: Routes = [
     {
         path: 'article/:id',
         component:PostComponent
+    },
+
+    {
+        path: 'login',
+        component:LoginComponent
     }
 
 ];

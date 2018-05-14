@@ -19,9 +19,7 @@
 <h4>Category</h4>
 <mat-form-field>
     <mat-select [(value)]="category">
-      <mat-option value="option1">Option 1</mat-option>
-      <mat-option value="option2">Option 2</mat-option>
-      <mat-option value="option3">Option 3</mat-option>
+      <mat-option value="{{cat.value}}" *ngFor="let cat of cats| async" >{{cat.value}}</mat-option>
     </mat-select>
   </mat-form-field>
 

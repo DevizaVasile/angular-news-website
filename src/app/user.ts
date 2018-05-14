@@ -14,6 +14,6 @@ export class User
     constructor(authData)
     {
         this.email=authData.email; 
-        this.roles={reader:true};
+        this.roles={reader:true,author:false,redactor:false};
     }
 }

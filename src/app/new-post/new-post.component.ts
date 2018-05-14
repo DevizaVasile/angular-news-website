@@ -14,7 +14,8 @@ import {DragAndDropServiceService} from '../drag-and-drop-service.service'
 import {Article} from '../article.model'
 import {ArticleService} from '../article.service'
 import { AuthServiceService  } from '../auth-service.service'
-
+import { TagsService } from "../tags.service"
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-new-post',
@@ -22,7 +23,8 @@ import { AuthServiceService  } from '../auth-service.service'
   styleUrls: ['./new-post.component.css'],
   providers: [DragAndDropServiceService,
                ArticleService,
-               AuthServiceService]
+               AuthServiceService,
+               TagsService]
 
 })
 
@@ -33,6 +35,7 @@ export class NewPostComponent implements OnInit {
   imgUrl:string="";
   category="";
   article:Article;
+  cats:FirebaseListObservable<any[]>;
   
 
 
@@ -102,12 +105,12 @@ export class NewPostComponent implements OnInit {
 
   }
 
-  constructor(public dndService:DragAndDropServiceService,private articleService:ArticleService,public dialog: MatDialog,public auth:AuthServiceService) { 
+  constructor(public dndService:DragAndDropServiceService,private articleService:ArticleService,public dialog: MatDialog,public auth:AuthServiceService, public tagService:TagsService) { 
     
   }
   
   ngOnInit() {
-
+      this.cats=this.tagService.getCats();
   }
 
   openDialog(msg:String)

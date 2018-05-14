@@ -17,14 +17,7 @@
 
   <div class="nav-scroller py-1 mb-2 ">
     <nav class="nav d-flex justify-content-between">
-      <a class="p-2 text-dark" href="#">Flat Earth</a>
-      <a class="p-2 text-dark" href="#">Statul Paralel</a>
-      <a class="p-2 text-dark" href="#">Conspiratii</a>
-      <a class="p-2 text-dark" href="#">Horoscop</a>
-      <a class="p-2 text-dark" href="#">Soros</a>
-      <a class="p-2 text-dark" href="#">Vaccinuri si autism</a>
-      <a class="p-2 text-dark" href="#">A murit Iliescu?</a>
-      <a class="p-2 text-dark" href="#">Antena3 e viata mea</a>
+      <a class="p-2 text-dark" href="#" *ngFor="let cat of cats| async">{{cat.value}}</a>
       <a class="p-2 text-dark" routerLink="about">Ce este Fake News INC.</a>
     </nav>
   </div>

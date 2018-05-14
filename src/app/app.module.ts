@@ -38,7 +38,8 @@ import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import { AuthServiceService  } from './auth-service.service'
+import { AuthServiceService  } from './auth-service.service';
+import { LoginComponent } from './login/login.component'
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -65,7 +66,8 @@ export const firebaseConfig = {
     TagEditorComponent,
     DialogDataExampleDialog,
     DashboardComponent,
-    DatabaseComponent
+    DatabaseComponent,
+    LoginComponent
   
   
   

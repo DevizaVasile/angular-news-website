@@ -55,7 +55,7 @@ export class TagsService {
 
  addCat(newCat:string)
  {
-   this.cats.push(newCat);
+   this.cats.push({value:newCat});
  }
 
  getCatByID(catID:string)
