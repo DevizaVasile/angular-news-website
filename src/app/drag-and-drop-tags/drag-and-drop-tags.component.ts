@@ -24,10 +24,10 @@ export class DragAndDropTagsComponent implements OnInit {
   listTeamOne: Array<string> = []; 
 
   constructor(public dndService:DragAndDropServiceService,public tagsService:TagsService) { 
+    
     this.tags=Observable.of(this.listTeamOne);
     this.listner=Observable.of(this.$tags)
 
-    //this.tags.subscribe(tagsList => this.listTeamOne)
     this.tags.subscribe(tagsList => 
       {
           dndService.setDndValues(tagsList)
@@ -41,7 +41,7 @@ export class DragAndDropTagsComponent implements OnInit {
     this.listBoxers=values;
 
   });
-  } )
+  })
 
     //this.updateValues()
 

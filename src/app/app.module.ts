@@ -26,6 +26,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import {MatTableDataSource,MatPaginator} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {CdkTableModule} from '@angular/cdk/table';
+import  { MatSortModule }  from '@angular/material';
 //Froala
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FormGroup } from '@angular/forms';
@@ -89,9 +95,14 @@ export const firebaseConfig = {
    MatFormFieldModule,
    MatInputModule,
    MatSelectModule,
+   MatTableModule,
+   MatPaginatorModule,
+   MatSortModule,
    DndModule.forRoot(),
    AngularFireModule.initializeApp(firebaseConfig),
    AngularFireDatabaseModule,
+   MatCheckboxModule,
+   CdkTableModule,
 
 
    FroalaEditorModule.forRoot(),

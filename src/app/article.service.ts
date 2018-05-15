@@ -13,7 +13,7 @@ export class ArticleService {
 
   articles:FirebaseListObservable<any[]>;
   userRoles: Array<string>; 
-
+  user:any;
   constructor(private database: AngularFireDatabase , private auth:AuthServiceService) 
   {
     this.articles = database.list('articles');
@@ -23,6 +23,13 @@ export class ArticleService {
       return this.userRoles = _.keys(_.get(user, 'roles'))
     })
     .subscribe()
+
+    this.auth.user.subscribe( nothing =>
+    {
+      this.user=this.auth.user.getValue()
+      
+    })
+
     
    }
 
@@ -43,6 +50,12 @@ export class ArticleService {
   getLastArticles(n)
   {
     return this.database.list("articles", {query:{limitToFirst:n,}});
+  }
+
+
+  getArticleByAuthor(authorName:string)
+  {
+    return this.database.list("articles" , {query:{author:authorName}})
   }
 
   get canRead(): boolean {
