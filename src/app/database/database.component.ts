@@ -8,6 +8,7 @@ import 'rxjs/add/observable/of';
 import {Observable} from 'rxjs/Observable';
 import { timer } from 'rxjs/observable/timer';
 import {SelectionModel} from '@angular/cdk/collections'
+import {MatSortModule} from '@angular/material/sort';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { DataSource } from '@angular/cdk/table';
@@ -29,7 +30,19 @@ export class DatabaseComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
-  constructor(private authService:AuthServiceService,private articleService:ArticleService) { }
+  
+
+  constructor(private authService:AuthServiceService,private articleService:ArticleService) { 
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
  
   ngOnInit() {

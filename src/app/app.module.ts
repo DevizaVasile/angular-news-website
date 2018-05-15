@@ -32,6 +32,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {CdkTableModule} from '@angular/cdk/table';
 import  { MatSortModule }  from '@angular/material';
+
 //Froala
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FormGroup } from '@angular/forms';

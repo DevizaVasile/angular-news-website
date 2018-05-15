@@ -5,6 +5,11 @@
 </ul>
 
 <div class="example-container mat-elevation-z8">
+
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
         <mat-table #table [dataSource]="dataSource" matSort>
        
           <!--- Note that these columns can be defined in any order.
@@ -14,19 +19,19 @@
           <!-- Title Column -->
           
           <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
           </ng-container>
        
           <!-- Author Column -->
           <ng-container matColumnDef="author">
-            <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Author </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
           </ng-container>
 
           <!-- ID Column -->
           <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.$key}} </mat-cell>
           </ng-container>
        
@@ -40,7 +45,7 @@
     [pageSize]="10"
     [pageSizeOptions]="[5, 10, 20]"
     [showFirstLastButtons]="true"
-    [length]="7"
+    
     [pageIndex]="0">
 
     </mat-paginator>
