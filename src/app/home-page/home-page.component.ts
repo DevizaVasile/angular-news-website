@@ -5,7 +5,7 @@ import { Article } from '../article.model';
 import { Tags } from '../tags.model'
 import { HeadingComponent } from '../heading/heading.component'
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {ArticleService} from '../article.service';
 
 

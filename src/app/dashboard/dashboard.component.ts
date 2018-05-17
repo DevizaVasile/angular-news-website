@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {ArticleService} from '../article.service'
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { Observable } from "rxjs"
 
 @Component({
   selector: 'app-dashboard',
@@ -13,11 +14,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class DashboardComponent implements OnInit {
 
+  mainHead:Observable<string>;
+  vvv:any;
   constructor(public authService:AuthServiceService,private router:Router,public artService:ArticleService) {
+   
   }
 
 
   ngOnInit() {
+    this.mainHead=this.artService.getHeadArticle()
+   // this.artService.item.subscribe(val => { this.mainHead=this.artService.item})
   }
 
   changeHead(headChange)
@@ -47,8 +53,7 @@ export class DashboardComponent implements OnInit {
 
   test_F()
   {
-   let v = this.artService.getHeadArticle()
-   console.log(v)
+   this.mainHead=this.artService.getHeadArticle()
   }
 
 

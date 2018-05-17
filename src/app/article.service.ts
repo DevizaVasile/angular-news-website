@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { AuthServiceService } from './auth-service.service'
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class ArticleService {
@@ -14,16 +15,24 @@ export class ArticleService {
   articles:FirebaseListObservable<any[]>;
   userRoles: Array<string>; 
   user:any;
-  headerArticle:FirebaseListObservable<any>;
 
 
   itemRef: FirebaseObjectObservable<any>;
-  item: Observable<any>;
+  public item: Observable<any>;
 
   constructor(private database: AngularFireDatabase , private auth:AuthServiceService) 
   {
     this.articles = database.list('articles');
-    this.headerArticle = database.list('dashboard/')
+    
+
+    this.itemRef = this.database.object("dashboard/mainHead/")
+    this.itemRef.subscribe( val =>{
+      this.itemRef.forEach(elem => {this.item=elem.value})
+    })
+ 
+
+   
+   
 
     auth.user.map(user => {
       /// Set an array of user roles, ie ['admin', 'author', ...]
@@ -117,9 +126,12 @@ export class ArticleService {
 
   public getHeadArticle()
   {
-    this.itemRef=this.database.object("dashboard")
-    console.log(this.database.list("dashboard", {query:{equalTo:"mainHead"}}) )
-     return this.database.list("dashboard", {query:{equalTo:"mainHead"}}) 
+    //this.itemRef.forEach(elem => {console.log(elem)})
+    //this.itemRef.forEach(elem => {
+//console.log(elem.value)
+  //    this.item=elem.value})
+    //console.log(this.database.list("dashboard", {query:{equalTo:"mainHead"}}) )
+    return this.item
 
   }
 

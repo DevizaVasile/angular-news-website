@@ -5,7 +5,7 @@
     <input matInput  #headChange>
     </mat-form-field>
     <button mat-button color="primary" (click)="changeHead(headChange.value); headChange.value=''">Change head</button>
-
+    <p>Current main head:{{this.artService.item}}</p>
     <br>
             
     <mat-form-field>
