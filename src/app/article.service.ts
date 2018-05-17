@@ -4,8 +4,8 @@ import { Article } from './article.model';
 
 import * as _ from 'lodash';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 import { AuthServiceService } from './auth-service.service'
 
 @Injectable()
@@ -14,9 +14,16 @@ export class ArticleService {
   articles:FirebaseListObservable<any[]>;
   userRoles: Array<string>; 
   user:any;
+  headerArticle:FirebaseListObservable<any>;
+
+
+  itemRef: FirebaseObjectObservable<any>;
+  item: Observable<any>;
+
   constructor(private database: AngularFireDatabase , private auth:AuthServiceService) 
   {
     this.articles = database.list('articles');
+    this.headerArticle = database.list('dashboard/')
 
     auth.user.map(user => {
       /// Set an array of user roles, ie ['admin', 'author', ...]
@@ -75,6 +82,45 @@ export class ArticleService {
 
   private matchingRole(allowedRoles): boolean {
     return !_.isEmpty(_.intersection(allowedRoles, this.userRoles))
+  }
+
+
+  public setHeadArticle(articleID:string)
+  {
+    let ref = this.database.object("dashboard/mainHead/")
+    ref.update({value:articleID})
+  }
+
+  public set1Of4(articleID:string)
+  {
+    let ref = this.database.object("dashboard/head1/")
+    ref.update({value:articleID})
+  }
+
+  public set2Of4(articleID:string)
+  {
+    let ref = this.database.object("dashboard/head2/")
+    ref.update({value:articleID})
+  }
+
+  public set3Of4(articleID:string)
+  {
+    let ref = this.database.object("dashboard/head3/")
+    ref.update({value:articleID})
+  }
+
+  public set4Of4(articleID:string)
+  {
+    let ref = this.database.object("dashboard/head4/")
+    ref.update({value:articleID})
+  }
+
+  public getHeadArticle()
+  {
+    this.itemRef=this.database.object("dashboard")
+    console.log(this.database.list("dashboard", {query:{equalTo:"mainHead"}}) )
+     return this.database.list("dashboard", {query:{equalTo:"mainHead"}}) 
+
   }
 
 

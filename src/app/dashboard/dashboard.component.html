@@ -1,2 +1,44 @@
-<p>Hello</p>
-<button (click)="login()">Log in with google</button>
+<div class="row">
+    <div class="col-12">
+    <mat-form-field>
+    <mat-label>articleID</mat-label>
+    <input matInput  #headChange>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="changeHead(headChange.value); headChange.value=''">Change head</button>
+
+    <br>
+            
+    <mat-form-field>
+    <mat-label>articleID</mat-label>   
+    <input matInput  #_1of4>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="set_set1Of4(_1of4.value); _1of4.value=''">Change first sub-head</button>
+
+    <br>
+
+    <mat-form-field>
+    <mat-label>articleID</mat-label>
+    <input matInput  #_2of4>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="set_set2Of4(_2of4.value); _2of4.value=''">Change second sub-head</button>
+
+    <br>
+
+    <mat-form-field>
+    <mat-label>articleID</mat-label>       
+    <input matInput  #_3of4>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="set_set3Of4(_3of4.value); _3of4.value=''">Change third sub-head</button>
+
+    <br>
+
+    <mat-form-field>
+    <mat-label>articleID</mat-label>
+    <input matInput  #_4of4>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="set_set4Of4(_4of4.value); _4of4.value=''">Change fourth sub-head</button>
+    </div>
+
+    <button (click)="test_F()">fsdfds</button>
+    
+</div>
