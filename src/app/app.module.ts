@@ -38,6 +38,9 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//pipe
+import { ReversePipe } from './reverse.pipe'
+
 
 //firebase credentials
 import { masterFirebaseConfig } from './api-keys';
@@ -74,7 +77,8 @@ export const firebaseConfig = {
     DialogDataExampleDialog,
     DashboardComponent,
     DatabaseComponent,
-    LoginComponent
+    LoginComponent,
+    ReversePipe
   
   
   

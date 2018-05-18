@@ -21,8 +21,10 @@ export class PostComponent implements OnInit {
 
   $articleToDisplay;
   articleID:string;
-  imgUrl:string;
+  public imgUrl:string;
+  public imglenght:number;
   tags:String[];
+  tagList:String[]
   
     //froala settings
     options: Object = {
@@ -46,11 +48,11 @@ export class PostComponent implements OnInit {
     this.$articleToDisplay=this.articleService.getArticleByID(this.articleID);
     this.$articleToDisplay.subscribe( ($articleToDisplay) => 
       {
-        console.log($articleToDisplay.content) 
+        
         this.editorContent=$articleToDisplay.content
         this.imgUrl=$articleToDisplay.mainImgUrl
         this.tags=$articleToDisplay.tags.tagList
-        console.log(this.tags)
+        this.imglenght=this.imgUrl.length
       });
     
 

@@ -67,11 +67,6 @@ export class NewPostComponent implements OnInit {
        msg="Title is too short. \n"
     }
 
-    if ( this.imgUrl.length == 0 )
-    {
-      msg="Please use an image. \n"+msg;
-    }
-
     if (this.editorContent.length < 10 )
     {
       msg="Article si too short. \n"+msg;
@@ -82,6 +77,11 @@ export class NewPostComponent implements OnInit {
         msg="Please add at least one tag. \n"+msg;
     }
 
+    if (this.category=="")
+    {
+        msg="Category is mandatory. \n"+msg;
+    }
+
     if (msg.length==0)
     {
       msg="Succes."
@@ -90,16 +90,20 @@ export class NewPostComponent implements OnInit {
 
     if(ready==true)
     {
-     var newArticle=new Article(this.title,this.imgUrl,this.editorContent,this.dndService.getDndValues(),this.auth.user.value.email,this.category)
+     var newArticle=new Article(this.title,this.imgUrl.trim(),this.editorContent,this.dndService.getDndValues(),this.auth.user.value.email,this.category)
      this.articleService.addArticle(newArticle)
-     window.location.reload();
+     this.title="";
+     this.imgUrl="";
+     this.category="";
+     this.editorContent=""
+     msg="Succes"
+     this.openDialog(msg)
+     
     }
     else
     {
       //console.log(msg)
       this.openDialog(msg)
-     
-      
     }
 
 

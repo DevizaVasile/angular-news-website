@@ -8,6 +8,10 @@ import { HeadingComponent } from '../heading/heading.component'
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {ArticleService} from '../article.service';
 
+import { ReversePipe } from '../reverse.pipe'
+
+
+
 
 @Component({
   selector: 'app-home-page',

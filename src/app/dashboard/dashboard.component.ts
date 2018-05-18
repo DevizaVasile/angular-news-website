@@ -14,21 +14,39 @@ import { Observable } from "rxjs"
 })
 export class DashboardComponent implements OnInit {
 
-  mainHead:Observable<string>;
-  vvv:any;
+ 
   constructor(public authService:AuthServiceService,private router:Router,public artService:ArticleService) {
    
   }
 
 
   ngOnInit() {
-    this.mainHead=this.artService.getHeadArticle()
-   // this.artService.item.subscribe(val => { this.mainHead=this.artService.item})
+   
   }
 
   changeHead(headChange)
   {
     this.artService.setHeadArticle(headChange)
+  }
+
+  change1Of4(headChange)
+  {
+    this.artService.set1Of4(headChange)
+  }
+
+  change2Of4(headChange)
+  {
+    this.artService.set2Of4(headChange)
+  }
+
+  change3Of4(headChange)
+  {
+    this.artService.set3Of4(headChange)
+  }
+
+  change4Of4(headChange)
+  {
+    this.artService.set4Of4(headChange)
   }
 
   set_set1Of4(_1of4)
@@ -51,10 +69,7 @@ export class DashboardComponent implements OnInit {
     this.artService.set4Of4(_4of4)
   }
 
-  test_F()
-  {
-   this.mainHead=this.artService.getHeadArticle()
-  }
+ 
 
 
 

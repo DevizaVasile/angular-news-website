@@ -3,9 +3,9 @@
 <div class="container">
 
     <h2 class="text-center p-2 m2">{{($articleToDisplay | async)?.title}}</h2>
-
-    <div class="d-flex justify-content-center">
-      <img [src]="imgUrl" class="img-responsive img-thumbnail align-center" width="600" height="270" align="align-right" >
+   
+    <div class="d-flex justify-content-center"> 
+      <img *ngIf="imglenght > 0" [src]="imgUrl" class="img-responsive img-thumbnail align-center" align="align-right" >
     </div>
 
     <div>
@@ -13,12 +13,12 @@
     </div>
 
     <div>
-      <p *ngFor="let tag of tags">{{tag}}</p>
+      <p *ngFor="let tag of tags">{{tag}}</p> 
     </div>
 
 
     <hr>
-
+    <p color="red"> {{imglenght}}</p>
 
 </div>
 

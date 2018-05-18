@@ -12,31 +12,32 @@
     <mat-label>articleID</mat-label>   
     <input matInput  #_1of4>
     </mat-form-field>
-    <button mat-button color="primary" (click)="set_set1Of4(_1of4.value); _1of4.value=''">Change first sub-head</button>
-
+    <button mat-button color="primary" (click)="change1Of4(_1of4.value); _1of4.value=''">Change first sub-head</button>
+    <p>Current first sub-head:{{this.artService.item1Of4}}</p>
     <br>
 
     <mat-form-field>
     <mat-label>articleID</mat-label>
     <input matInput  #_2of4>
     </mat-form-field>
-    <button mat-button color="primary" (click)="set_set2Of4(_2of4.value); _2of4.value=''">Change second sub-head</button>
-
+    <button mat-button color="primary" (click)="change2Of4(_2of4.value); _2of4.value=''">Change second sub-head</button>
+    <p>Currentsecond sub-head:{{this.artService.item2Of4}}</p>
     <br>
 
     <mat-form-field>
     <mat-label>articleID</mat-label>       
     <input matInput  #_3of4>
     </mat-form-field>
-    <button mat-button color="primary" (click)="set_set3Of4(_3of4.value); _3of4.value=''">Change third sub-head</button>
-
+    <button mat-button color="primary" (click)="change3Of4(_3of4.value); _3of4.value=''">Change third sub-head</button>
+    <p>Current third sub-head:{{this.artService.item3Of4}}</p>
     <br>
 
     <mat-form-field>
     <mat-label>articleID</mat-label>
     <input matInput  #_4of4>
     </mat-form-field>
-    <button mat-button color="primary" (click)="set_set4Of4(_4of4.value); _4of4.value=''">Change fourth sub-head</button>
+    <button mat-button color="primary" (click)="change4Of4(_4of4.value); _4of4.value=''">Change fourth sub-head</button>
+    <p>Current fourth sub-head:{{this.artService.item4Of4}}</p>
     </div>
 
     <button (click)="test_F()">fsdfds</button>

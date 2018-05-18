@@ -122,6 +122,11 @@ export class Article {
          return this.showDate;
      }
 
+     public getCategory()
+     {
+         return this.category
+     }
+
 
      //Setters
 
@@ -160,6 +165,17 @@ export class Article {
      public setDate(newDate:string)
      {
          this.showDate=newDate;
+     }
+
+     public setTags(tagList)
+     {
+        this.tags=new Tags(this.tagsList)
+        this.tagsList=tagList
+     }
+
+     public setCategory(newCat)
+     {
+         this.category=newCat
      }
 
 

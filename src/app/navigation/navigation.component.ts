@@ -27,11 +27,7 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
     this.cats=this.tagService.getCats();
-    console.log(this.cats)
-    let vvv=this.cats.toArray();
-    console.log(vvv)
-    
-  
+    let vvv=this.cats.toArray();  
   }
 
   login() {
