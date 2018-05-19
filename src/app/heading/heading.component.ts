@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs/Subscription';
 import {Router} from "@angular/router"
 import { FroalaEditorModule, FroalaViewModule, FroalaViewDirective, FroalaEditorDirective } from 'angular-froala-wysiwyg';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-heading',
@@ -38,6 +39,13 @@ export class HeadingComponent implements OnInit {
     public editorContent2Of4: string = ''
     public editorContent3Of4: string = ''
     public editorContent4Of4: string = ''
+
+    public imgLen:number;
+    public imgLen1Of4:number;
+    public imgLen2Of4:number;
+    public imgLen3Of4:number;
+    public imgLen4Of4:number;
+
 
     articles:FirebaseListObservable<any>;
 
@@ -94,6 +102,7 @@ export class HeadingComponent implements OnInit {
             this.article1Of4.setCategory(val_child.category)
             this.editorContent1Of4=val_child.shortText
             this.article1Of4.setMainImgUrl(val_child.mainImgUrl)
+            this.imgLen1Of4=this.article1Of4.mainImgUrl.length
           }
         })
       })
@@ -114,6 +123,7 @@ export class HeadingComponent implements OnInit {
             this.article2Of4.setTitle(val_child.title)
             this.article2Of4.setTags(val_child.tags)
             this.editorContent2Of4=val_child.shortText
+            this.imgLen2Of4=this.article2Of4.mainImgUrl.length
           }
         })
       })
