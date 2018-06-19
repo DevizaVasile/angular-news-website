@@ -10,7 +10,7 @@
     <!-->Main articles <!-->
     <div class="col-sm-12 col-md-12 col-lg-7  m-1">
         
-      <p class="text-center">Main Articles</p>
+      <p class="text-center">Cele mai citite</p>
 
         <div class="row mb-1">
           
@@ -68,7 +68,7 @@
 
     <!--> Right bar <!-->
     <div class="col-sm-12 col-md-12 col-lg-4  m-1">
-      <p class="text-center">Cele mai noi articole</p>
+      <p class="text-center">Ultimile stiri</p>
 
       <div class="row">
         <div *ngFor="let article of articles | async | reverse" (click)="goToArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">

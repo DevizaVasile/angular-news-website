@@ -1,4 +1,24 @@
-<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+
+  <div class="jumbotron p-3 p-md-5  rounded" style="background-size:100% 100%; height:350px ; " [ngStyle]="{'background-image': 'url(' + article.mainImgUrl + ')'}">
+    <div class="col-md-12 px-0" (click)="headerRedirect()">
+      <h6 id="header-text" class="display-4 font-italic">{{article.title}}</h6>
+      <div [froalaView]="editorContent" class="d-flex justify-content-center"></div>
+    </div>
+  </div>
+      </div>
+      <div class="col-md-4 bg-danger justify-content-center" style="height:350px ;">
+        <p style="text-align: center">Recomandările redacţiei</p>
+      </div>
+    </div>
+</div>
+
+
+<!--
+<div class="jumbotron p-3 p-md-5  rounded" style='background-image: url("[article.mainImgUrl]"); background-repeat: no-repeat;width: 100%;height: 100%;'>
   <div class="col-md-12 px-0" (click)="headerRedirect()">
     <h6 id="header-text" class="display-4 font-italic">{{article.title}}</h6>
     <div [froalaView]="editorContent" class="d-flex justify-content-center"></div>
@@ -6,72 +26,72 @@
   </div>
 </div>
 
+
+
+<div class="jumbotron p-3 p-md-5 imageTest bg-danger">
+
+    <img width="500px" src="{{article.mainImgUrl}}" alt="" />
+
+  <div class="h2Test" (click)="headerRedirect()">
+    <h6 id="header-text" class="display-4 font-italic">{{article.title}}</h6>
+    <div [froalaView]="editorContent" class="d-flex justify-content-center"></div>
+    <p>Citeste mai mult...</p>
+  </div>
+
+</div>
+-->
+
+
+
 <!--[style.background.color]="article1Of4.mainImgUrl.length >  0 ? 'red' : 'green'" -->
 
   <div class="row mb-2 d-flex justify-content-center">
 
       <mat-card class="example-card" (click)="header1Of4Redicerc()">
           <mat-card-header>
-            <mat-card-title><H4>{{article1Of4.title}}</H4></mat-card-title>
+            <mat-card-title><H5>{{article1Of4.title}}</H5></mat-card-title>
             <mat-card-subtitle>{{article1Of4.category}}</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image  src="{{article1Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen1Of4 > 0">
           <mat-card-content>
-              <div [froalaView]="editorContent1Of4" class="d-flex justify-content-center"></div>
+              <div [froalaView]="editorContent1Of4" class="justify-content-center"></div>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions>
         </mat-card>
 
         
         <mat-card class="example-card" (click)="header2Of4Redicerc()">
             <mat-card-header>
-              <mat-card-title><H4>{{article2Of4.title}}</H4></mat-card-title>
+              <mat-card-title><H5>{{article2Of4.title}}</H5></mat-card-title>
               <mat-card-subtitle>{{article2Of4.category}}</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image  src="{{article2Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen2Of4 > 0">
             <mat-card-content>
-                <div [froalaView]="editorContent2Of4" class="d-flex justify-content-center"></div>
+                <div [froalaView]="editorContent2Of4" class="justify-content-center"></div>
             </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
           </mat-card>
 
           
           <mat-card class="example-card" (click)="header2Of4Redicerc()">
               <mat-card-header>
-                <mat-card-title><H4>{{article2Of4.title}}</H4></mat-card-title>
+                <mat-card-title><H5>{{article2Of4.title}}</H5></mat-card-title>
                 <mat-card-subtitle>{{article2Of4.category}}</mat-card-subtitle>
               </mat-card-header>
               <img mat-card-image  src="{{article2Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen2Of4 > 0">
               <mat-card-content>
-                  <div [froalaView]="editorContent2Of4" class="d-flex justify-content-center"></div>
+                  <div [froalaView]="editorContent2Of4" class="justify-content-center"></div>
               </mat-card-content>
-              <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-              </mat-card-actions>
             </mat-card>
             
             <mat-card class="example-card" (click)="header1Of4Redicerc()">
                 <mat-card-header>
-                  <mat-card-title><H4>{{article1Of4.title}}</H4></mat-card-title>
+                  <mat-card-title><H5>{{article1Of4.title}}</H5></mat-card-title>
                   <mat-card-subtitle>{{article1Of4.category}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image  src="{{article1Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen1Of4 > 0">
                 <mat-card-content>
-                    <div [froalaView]="editorContent1Of4" class="d-flex justify-content-center"></div>
+                    <div [froalaView]="editorContent1Of4" class="justify-content-center"></div>
                 </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
-                </mat-card-actions>
               </mat-card>
               
-
-
   </div>
+

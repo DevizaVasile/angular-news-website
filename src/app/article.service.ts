@@ -13,6 +13,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class ArticleService {
 
   articles:FirebaseListObservable<any[]>;
+  catArticles:FirebaseListObservable<any[]>;
   userRoles: Array<string>; 
   user:any;
 
@@ -35,6 +36,7 @@ export class ArticleService {
   constructor(private database: AngularFireDatabase , private auth:AuthServiceService) 
   {
     this.articles = database.list('articles');
+
     
     //head
     this.itemRef = this.database.object("dashboard/mainHead/")
@@ -185,6 +187,13 @@ export class ArticleService {
   public get4Of4Head()
   {
     return this.item4Of4
+  }
+
+  //category filtering
+  public getArticlesByCategory(category:string)
+  {
+    
+    return this.database.list('articles', {query:{orderByChild:'category',equalTo:category}})
   }
 
 

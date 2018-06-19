@@ -41,5 +41,13 @@ export class NavigationComponent implements OnInit {
     this.authService.signOut();
   }
 
+  redirectCategory(catName)
+  {
+    this.router.navigate(['/category',catName])
+  }
+
+
+
+
 
 }

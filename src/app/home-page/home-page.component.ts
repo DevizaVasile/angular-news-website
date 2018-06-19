@@ -32,7 +32,7 @@ export class HomePageComponent implements OnInit {
    goToArticle(clickedArticle:Article)
    {
      //this.articleService.getArticleByID()
-     console.log(clickedArticle.$key)
+     //console.log(clickedArticle.$key)
      this.router.navigate(['article',clickedArticle.$key])
    }
 

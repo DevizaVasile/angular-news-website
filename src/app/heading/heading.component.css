@@ -3,7 +3,22 @@
 }
 
 .example-card {
-    max-width: 450px;
+    max-width: 250px;
     margin: 15px;
-
+    word-wrap: break-word;
   }
+
+  .imageTest { 
+    position: relative; 
+    width:300px; /* for IE 6 */
+ }
+ 
+ .h2Test { 
+    position: absolute; 
+    top: 200px; 
+    left: 0; 
+    width: 100%; 
+ }
+
+
+  

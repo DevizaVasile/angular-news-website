@@ -1,1 +1,29 @@
-<app-heading></app-heading>
+<app-navigation></app-navigation>
+
+<div class="container">
+    <p class="text-center">{{postCategory}}</p>
+
+
+    <div class="row mb-4  d-flex justify-content-center">
+        <mat-card *ngFor="let article of articles | async | reverse" class="example-card" (click)="goToArticle(article)" >
+            <mat-card-header>
+              <mat-card-title><H5>{{article.title}}</H5></mat-card-title>
+              <mat-card-subtitle>{{article.category}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image  src="{{article.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen1Of4 > 0">
+            <mat-card-content>
+                {{article.mainImgUrl}}
+            </mat-card-content>
+          </mat-card>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-4  m-1"></div>
+    <div class="row">
+        <div *ngFor="let article of articles | async | reverse" (click)="goToArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">
+            <h6><em>{{article.title}}</em> by {{article.$key}} cat: {{article.category}}</h6>
+            <hr>
+    </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
