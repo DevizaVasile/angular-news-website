@@ -33,27 +33,20 @@ export class Article {
     public published:boolean=false;
     
 
-    
-
-    
-
-
-
-
 
     constructor(public title:string , public mainImgUrl:string , public content:string, public tagsList:string[],public author:string,public category:string)
     {  
         // generates text for theading  
-        // majority of publication uses 30 words as short description
+        // majority of publication uses 15 words as short description
         //in headings.
         let dateObject = new Date()
 
         let words = content.split(' ');
         let contentLengt = words.length
 
-        if (contentLengt > 30 )
+        if (contentLengt > 15 )
             {
-                words = words.slice(0,30);
+                words = words.slice(0,15);
                 this.shortText = words.join(" ");
             }
         else

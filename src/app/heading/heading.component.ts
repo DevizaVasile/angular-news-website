@@ -128,16 +128,52 @@ export class HeadingComponent implements OnInit {
         })
       })
     })
+
+        //3of4
+        this.subscription3Of4 = this.artServ.itemRef3Of4.subscribe(message3Of4 =>{
+          let id3Of4 = message3Of4.value;
+          this.message3Of4 = id3Of4;
+    
+          articles.forEach(val=>{
+            val.forEach(val_child=>{
+              if (val_child.$key==this.message3Of4.trim())
+              {
+                this.article3Of4=new Article(val_child.title,val_child.mainImgUrl,val_child.content,val_child.tagsList,val_child.author,val_child.category);
+                this.article3Of4.setDate(val_child.showDate)
+                this.article3Of4.setShortText(val_child.shortText)
+                this.article3Of4.setTitle(val_child.title)
+                this.article3Of4.setTags(val_child.tags)
+                this.editorContent3Of4=val_child.shortText
+                this.imgLen3Of4=this.article3Of4.mainImgUrl.length
+              }
+            })
+          })
+        })
    
 
 
-
+        //4of4
+        this.subscription4Of4 = this.artServ.itemRef4Of4.subscribe(message4Of4 =>{
+        let id4Of4 = message4Of4.value;
+        this.message4Of4 = id4Of4;
   
+        articles.forEach(val=>{
+          val.forEach(val_child=>{
+            if (val_child.$key==this.message4Of4.trim())
+            {
+              this.article4Of4=new Article(val_child.title,val_child.mainImgUrl,val_child.content,val_child.tagsList,val_child.author,val_child.category);
+              this.article4Of4.setDate(val_child.showDate)
+              this.article4Of4.setShortText(val_child.shortText)
+              this.article4Of4.setTitle(val_child.title)
+              this.article4Of4.setTags(val_child.tags)
+              this.editorContent4Of4=val_child.shortText
+              this.imgLen4Of4=this.article4Of4.mainImgUrl.length
+            }
+          })
+        })
+      })
 
 
-    
-    
-     
 
    }
 

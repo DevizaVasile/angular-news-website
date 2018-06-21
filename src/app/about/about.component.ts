@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  logo:string;
+
+  constructor() {
+    this.logo='assets/img/IESC_logo.png'
+  }
 
   ngOnInit() {
   }

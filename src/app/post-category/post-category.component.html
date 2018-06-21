@@ -17,13 +17,6 @@
           </mat-card>
     </div>
 
-    <div class="col-sm-12 col-md-12 col-lg-4  m-1"></div>
-    <div class="row">
-        <div *ngFor="let article of articles | async | reverse" (click)="goToArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">
-            <h6><em>{{article.title}}</em> by {{article.$key}} cat: {{article.category}}</h6>
-            <hr>
-    </div>
-    </div>
-</div>
+
 
 <app-footer></app-footer>

@@ -72,7 +72,7 @@
 
       <div class="row">
         <div *ngFor="let article of articles | async | reverse" (click)="goToArticle(article)" class="col-12 col-md-12 col-sm-12 col-xs-12 col-lg-12 mb-3">
-            <h6><em>{{article.title}}</em> by {{article.$key}}</h6>
+            <h6><em><b>{{article.title}}</b></em> <br>  {{article.category}}</h6>
             <hr>
       </div>
 

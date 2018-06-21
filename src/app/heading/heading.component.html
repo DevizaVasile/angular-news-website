@@ -3,10 +3,11 @@
     <div class="row">
       <div class="col-md-8">
 
-  <div class="jumbotron p-3 p-md-5  rounded" style="background-size:100% 100%; height:350px ; " [ngStyle]="{'background-image': 'url(' + article.mainImgUrl + ')'}">
+  <div class="jumbotron p-3 p-md-5  rounded" style="background-size:100% auto; height:350px ; " [ngStyle]="{'background-image': 'url(' + article.mainImgUrl + ')'}">
     <div class="col-md-12 px-0" (click)="headerRedirect()">
       <h6 id="header-text" class="display-4 font-italic">{{article.title}}</h6>
-      <div [froalaView]="editorContent" class="d-flex justify-content-center"></div>
+      <!-- <div [froalaView]="editorContent" class="justify-content-center"></div> -->
+      <p><i>{{article.category}}</i></p>
     </div>
   </div>
       </div>
@@ -54,7 +55,7 @@
           </mat-card-header>
           <img mat-card-image  src="{{article1Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen1Of4 > 0">
           <mat-card-content>
-              <div [froalaView]="editorContent1Of4" class="justify-content-center"></div>
+            <!--   <div [froalaView]="editorContent1Of4" class="justify-content-center"></div> -->
           </mat-card-content>
         </mat-card>
 
@@ -66,30 +67,30 @@
             </mat-card-header>
             <img mat-card-image  src="{{article2Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen2Of4 > 0">
             <mat-card-content>
-                <div [froalaView]="editorContent2Of4" class="justify-content-center"></div>
+               <!-- <div [froalaView]="editorContent2Of4" class="justify-content-center"></div> -->
             </mat-card-content>
           </mat-card>
 
           
-          <mat-card class="example-card" (click)="header2Of4Redicerc()">
+          <mat-card class="example-card" (click)="header3Of4Redicerc()">
               <mat-card-header>
-                <mat-card-title><H5>{{article2Of4.title}}</H5></mat-card-title>
-                <mat-card-subtitle>{{article2Of4.category}}</mat-card-subtitle>
+                <mat-card-title><H5>{{article3Of4.title}}</H5></mat-card-title>
+                <mat-card-subtitle>{{article3Of4.category}}</mat-card-subtitle>
               </mat-card-header>
-              <img mat-card-image  src="{{article2Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen2Of4 > 0">
+              <img mat-card-image  src="{{article3Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen3Of4 > 0">
               <mat-card-content>
-                  <div [froalaView]="editorContent2Of4" class="justify-content-center"></div>
+                 <!--  <div [froalaView]="editorContent3Of4" class="justify-content-center"></div> -->
               </mat-card-content>
             </mat-card>
             
-            <mat-card class="example-card" (click)="header1Of4Redicerc()">
+            <mat-card class="example-card" (click)="header4Of4Redicerc()">
                 <mat-card-header>
-                  <mat-card-title><H5>{{article1Of4.title}}</H5></mat-card-title>
-                  <mat-card-subtitle>{{article1Of4.category}}</mat-card-subtitle>
+                  <mat-card-title><H5>{{article4Of4.title}}</H5></mat-card-title>
+                  <mat-card-subtitle>{{article4Of4.category}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image  src="{{article1Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen1Of4 > 0">
+                <img mat-card-image  src="{{article4Of4.mainImgUrl}}"  alt="Photo of a Shiba Inu" *ngIf="imgLen4Of4 > 0">
                 <mat-card-content>
-                    <div [froalaView]="editorContent1Of4" class="justify-content-center"></div>
+                   <!--  <div [froalaView]="editorContent4Of4" class="justify-content-center"></div> -->
                 </mat-card-content>
               </mat-card>
               
